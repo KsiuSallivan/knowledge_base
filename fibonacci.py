@@ -1,12 +1,3 @@
-# Неверное решение из головы
-# def fibo_0(num):
-#     list_num = [0, 1]
-#     for i in range(2, num + 1):
-#         x = (i - 2) + (i - 1)
-#         list_num.append(x)
-#     return list_num
-#
-
 def fibo_1(num):
     list_num = [0, 1]
     for i in range(2, num):
@@ -35,3 +26,17 @@ def fibo_3(n):
 print(fibo_1(25))
 print(fibo_2(25))
 print(fibo_3(25))
+
+
+def fibo_4():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+
+# Создаем генератор
+fib_gen = fibo_4()
+
+for i in range(25):
+    print(next(fib_gen))
